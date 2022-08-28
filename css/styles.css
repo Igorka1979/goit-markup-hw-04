@@ -9,6 +9,7 @@
   --blue-hover: #188ce8;
   --border-header: #ececec;
   --border-white: #eeeeee;
+  --logo-color: #afb1b8;
 }
 body {
   background-color: var(--primary-bgc);
@@ -102,6 +103,9 @@ img {
 }
 .mail-link,
 .phone-link {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -119,6 +123,27 @@ img {
 .link.current {
   color: var(--accent-color);
 }
+.mail-svg {
+  width: 16px;
+  height: 12px;
+}
+
+.phone-svg {
+  width: 10px;
+  height: 16px;
+}
+
+.mail-svg,
+.phone-svg {
+  fill: currentColor;
+}
+
+.mail-link:focus .mail-svg,
+.mail-link:focus .mail-svg,
+.phone-link:hover .phone-svg,
+.phone-link:focus .phone-svg {
+  fill: var(--accent-color);
+}
 
 .section {
   padding-top: 94px;
@@ -127,6 +152,20 @@ img {
 /* Головний заголовок */
 .hero {
   background-color: var(--black-hero);
+  background-image: linear-gradient(
+      0deg,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/images-index/img-hero.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
@@ -186,6 +225,18 @@ img {
 .features-item {
   flex-basis: calc((100% - 90px) / 4);
 }
+.features-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  margin-bottom: 30px;
+  background-color: var(--team-bg);
+}
+.features-icon {
+  width: 70px;
+  height: 70px;
+}
 
 .features-subtitle {
   font-weight: 700;
@@ -226,7 +277,9 @@ img {
   gap: 30px;
   padding: 0px;
 }
-.team-img {
+.team-box {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .team-name {
   font-weight: 500;
@@ -248,10 +301,80 @@ img {
   text-align: center;
   padding-bottom: 30px;
 }
+.team-social-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.team-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+.team-link:hover,
+.team-link:focus {
+  background-color: var(--accent-color);
+}
+
+.team-link:hover .team-logo-social,
+.team-link:focus .team-logo-social {
+  fill: var(--primary-bgc);
+}
+.team-logo-social {
+  width: 20px;
+  height: 20px;
+  fill: var(--logo-color);
+}
 .team-item {
   background-color: var(--primary-bgc);
   border-radius: 4px;
   flex-basis: calc((100%-90px) / 4);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+/* Наші клієнти */
+.clients-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.16;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--primary-text-color);
+  margin-bottom: 50px;
+}
+
+.clients-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.client-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 92px;
+  border-radius: 4px;
+  border: 1px solid var(--logo-color);
+}
+
+.client-link:hover,
+.client-link:focus {
+  border: 1px solid var(--accent-color);
+}
+.client-link:hover .client-logo,
+.client-link:focus .client-logo {
+  fill: var(--accent-color);
+}
+.client-logo {
+  width: 106px;
+  height: 60px;
+  fill: var(--logo-color);
 }
 /* Сторінка портфолоіо */
 
@@ -313,6 +436,11 @@ img {
 }
 
 /* Footer styles */
+.footer .container {
+  display: flex;
+  gap: 70px;
+  align-items: baseline;
+}
 .footer {
   background-color: var(--black-hero);
   color: var(--primary-bgc);
@@ -321,14 +449,50 @@ img {
   padding-top: 60px;
   padding-bottom: 60px;
 }
-.logo-part-footer {
-  color: var(--accent-color);
+.join-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary-bgc);
+  margin-bottom: 20px;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--primary-bgc);
+}
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .footer .logo.link {
   display: inline-block;
   margin-right: 0;
   margin-bottom: 20px;
 }
+
+.footer-link:hover,
+.footer-link:focus {
+  background-color: var(--accent-color);
+}
+.footer-icons-list {
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.logo-part-footer {
+  color: var(--accent-color);
+}
+
 .footer-item {
   margin-bottom: 9px;
 }
